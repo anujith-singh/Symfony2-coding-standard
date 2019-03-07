@@ -1,4 +1,8 @@
 <?php
+namespace Symfony2\Sniffs\Classes;
+
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
 
 /**
  * This file is part of the Symfony2-coding-standard (phpcs standard)
@@ -26,7 +30,7 @@
  * @license  http://spdx.org/licenses/MIT MIT License
  * @link     https://github.com/opensky/Symfony2-coding-standard
  */
-class Symfony2_Sniffs_Classes_MultipleClassesOneFileSniff implements PHP_CodeSniffer_Sniff
+class MultipleClassesOneFileSniff implements Sniff
 {
     /**
      * The number of times the T_CLASS token is encountered in the file.
@@ -70,7 +74,7 @@ class Symfony2_Sniffs_Classes_MultipleClassesOneFileSniff implements PHP_CodeSni
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         if ($this->currentFile !== $phpcsFile->getFilename()) {
             $this->classCount  = 0;

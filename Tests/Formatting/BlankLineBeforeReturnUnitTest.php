@@ -1,4 +1,8 @@
 <?php
+namespace Symfony2\Tests\Formatting;
+
+use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
+
 /**
  * This file is part of the Symfony2-coding-standard (phpcs standard)
  *
@@ -25,7 +29,7 @@
  * @license   http://spdx.org/licenses/MIT MIT License
  * @link      https://github.com/opensky/Symfony2-coding-standard
  */
-class Symfony2_Tests_Formatting_BlankLineBeforeReturnUnitTest extends AbstractSniffUnitTest
+class BlankLineBeforeReturnUnitTest extends AbstractSniffUnitTest
 {
     /**
      * Returns the lines where errors should occur.
