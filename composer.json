@@ -4,5 +4,10 @@
     "require": {
         "squizlabs/php_codesniffer": "~3.4"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "scripts": {
+        "post-install-cmd": [
+            "ls -s vendor/anujithsingh/symfony2-coding-standard/ vendor/squizlabs/php_codesniffer/src/Standards/Symfony2"
+        ],
+    }
 }
