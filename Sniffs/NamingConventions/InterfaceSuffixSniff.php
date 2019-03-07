@@ -1,4 +1,9 @@
 <?php
+namespace Symfony2\Sniffs\NamingConventions;
+
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+
 /**
  * This file is part of the Symfony2-coding-standard (phpcs standard)
  *
@@ -25,7 +30,7 @@
  * @license  http://spdx.org/licenses/MIT MIT License
  * @link     https://github.com/opensky/Symfony2-coding-standard
  */
-class Symfony2_Sniffs_NamingConventions_InterfaceSuffixSniff implements PHP_CodeSniffer_Sniff
+class InterfaceSuffixSniff implements Sniff
 {
     /**
      * A list of tokenizers this sniff supports.
@@ -55,7 +60,7 @@ class Symfony2_Sniffs_NamingConventions_InterfaceSuffixSniff implements PHP_Code
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens   = $phpcsFile->getTokens();
         $line     = $tokens[$stackPtr]['line'];

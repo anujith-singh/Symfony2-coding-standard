@@ -1,4 +1,8 @@
 <?php
+namespace Symfony2\Sniffs\Commenting;
+
+use PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff as ClsCommentSniff;
+
 /**
  * Parses and verifies the doc comments for classes.
  *
@@ -13,16 +17,6 @@
  * @version   CVS: $Id: ClassCommentSniff.php 301632 2010-07-28 01:57:56Z squiz $
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-
-if (class_exists('PHP_CodeSniffer_CommentParser_ClassCommentParser', true) === false) {
-    $error = 'Class PHP_CodeSniffer_CommentParser_ClassCommentParser not found';
-    throw new PHP_CodeSniffer_Exception($error);
-}
-
-if (class_exists('PEAR_Sniffs_Commenting_ClassCommentSniff', true) === false) {
-    $error = 'Class PEAR_Sniffs_Commenting_ClassCommentSniff not found';
-    throw new PHP_CodeSniffer_Exception($error);
-}
 
 /**
  * Parses and verifies the doc comments for classes.
@@ -47,7 +41,7 @@ if (class_exists('PEAR_Sniffs_Commenting_ClassCommentSniff', true) === false) {
  * @version   Release: 1.3.0RC2
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class Symfony2_Sniffs_Commenting_ClassCommentSniff extends PEAR_Sniffs_Commenting_ClassCommentSniff
+class ClassCommentSniff extends ClsCommentSniff
 {
     /**
      * Tags in correct order and related info.

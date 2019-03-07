@@ -1,4 +1,10 @@
 <?php
+namespace Symfony2\Sniffs\Scope;
+
+use PHP_CodeSniffer\Sniffs\AbstractScopeSniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Tokens;
+
 /**
  * Verifies that class members have scope modifiers.
  *
@@ -14,10 +20,6 @@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 
-if (class_exists('PHP_CodeSniffer_Standards_AbstractScopeSniff', true) === false) {
-    throw new PHP_CodeSniffer_Exception('Class PHP_CodeSniffer_Standards_AbstractScopeSniff not found');
-}
-
 /**
  * Verifies that class members have scope modifiers.
  *
@@ -30,7 +32,7 @@ if (class_exists('PHP_CodeSniffer_Standards_AbstractScopeSniff', true) === false
  * @version   Release: 1.3.0
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class Symfony2_Sniffs_Scope_MethodScopeSniff extends PHP_CodeSniffer_Standards_AbstractScopeSniff
+class MethodScopeSniff extends AbstractScopeSniff
 {
     /**
      * Constructs a Symfony2_Sniffs_Scope_MethodScopeSniff.
@@ -41,6 +43,10 @@ class Symfony2_Sniffs_Scope_MethodScopeSniff extends PHP_CodeSniffer_Standards_A
 
     }//end __construct()
 
+    protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
+    {
+    }
+
     /**
      * Processes the function tokens within the class.
      *
@@ -50,7 +56,7 @@ class Symfony2_Sniffs_Scope_MethodScopeSniff extends PHP_CodeSniffer_Standards_A
      *
      * @return void
      */
-    protected function processTokenWithinScope(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $currScope)
+    protected function processTokenWithinScope(File $phpcsFile, $stackPtr, $currScope)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -60,7 +66,7 @@ class Symfony2_Sniffs_Scope_MethodScopeSniff extends PHP_CodeSniffer_Standards_A
             return;
         }
 
-        $modifier = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$scopeModifiers, $stackPtr);
+        $modifier = $phpcsFile->findPrevious(Tokens::$scopeModifiers, $stackPtr);
         if (($modifier === false) || ($tokens[$modifier]['line'] !== $tokens[$stackPtr]['line'])) {
             $error = 'No scope modifier specified for function "%s"';
             $data  = array($methodName);

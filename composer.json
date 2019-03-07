@@ -1,0 +1,8 @@
+{
+    "name": "anujithsingh/symfony2-coding-standard",
+    "description": "Symfony2 PHP CodeSniffer Coding Standard",
+    "require": {
+        "squizlabs/php_codesniffer": "~3.4"
+    },
+    "license": "MIT"
+}
