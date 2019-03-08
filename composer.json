@@ -7,7 +7,7 @@
     "license": "MIT",
     "scripts": {
         "post-install-cmd": [
-            "ls -s vendor/anujithsingh/symfony2-coding-standard/ vendor/squizlabs/php_codesniffer/src/Standards/Symfony2"
+            "cp -R vendor/anujithsingh/symfony2-coding-standard/ vendor/squizlabs/php_codesniffer/src/Standards/Symfony2"
         ],
     }
 }
