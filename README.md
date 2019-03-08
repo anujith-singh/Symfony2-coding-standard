@@ -13,7 +13,7 @@ This standard can be installed with the [Composer](https://getcomposer.org/) dep
 
 2. Install the coding standard as a dependency of your project
 
-        composer require --dev anujith-singh/Symfony2-coding-standard
+        composer require --dev anujith-singh/Symfony2-coding-standard:1.0.0
 
 3. Check the installed coding standards for "Symfony"
 
