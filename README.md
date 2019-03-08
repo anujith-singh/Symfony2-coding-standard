@@ -1,36 +1,48 @@
-Symfony2 PHP CodeSniffer Coding Standard
+Symfony PHP CodeSniffer Coding Standard
 ========================================
 
-A code standard to check against the [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html)
+A coding standard to check against the [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html), originally shamelessly copied from the -disappeared- opensky/Symfony2-coding-standard repository.
 
 Installation
 ------------
 
-1. Install phpcs:
+### Composer
+This standard can be installed with the [Composer](https://getcomposer.org/) dependency manager.
 
-        pear install PHP_CodeSniffer
+1. [Install Composer](https://getcomposer.org/doc/00-intro.md)
 
-2. Find your PEAR directory:
+2. Install the coding standard as a dependency of your project
 
-        pear config-show | grep php_dir
+        composer require --dev anujith-singh/Symfony2-coding-standard
 
-3. Copy, symlink or check out this repo to a folder called Symfony2 inside the
-   phpcs `Standards` directory:
+3. Check the installed coding standards for "Symfony"
 
-        cd /path/to/pear/PHP/CodeSniffer/Standards
-        git clone git://github.com/ajayrungta/Symfony2-coding-standard.git Symfony2
+        phpcs -i
 
-4. Set Symfony2 as your default coding standard:
+4. Done!
 
-        phpcs --config-set default_standard Symfony2
+        bin/phpcs --standard=Symfony2 /path/to/code
 
-5. ...
 
-6. Profit!
+### Stand-alone
 
-        cd /path/to/my/project
-        phpcs
-        phpcs path/to/my/file.php
+1. Install [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+
+2. Checkout this repository 
+
+        git clone git://github.com/anujith-singh/Symfony2-coding-standard.git
+
+3. Move rules to squizlabs/PHP_CodeSniffer's Standards directory
+        
+        cp -R path/to/anujithsingh/symfony2-coding-standard/ vendor/squizlabs/php_codesniffer/src/Standards/Symfony2
+
+4. Check the installed coding standards for "Symfony"
+
+        phpcs -i
+
+5. Done!
+
+        phpcs --standard=Symfony2 /path/to/code
 
 
 Contributing
